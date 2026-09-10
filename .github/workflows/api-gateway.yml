@@ -1,0 +1,31 @@
+name: Backend CI / build-and-test (API-Gateway/API-Gateway)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'API-Gateway/**'
+      - '.github/workflows/api-gateway.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'API-Gateway/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+
+    - name: Build with Maven
+      run: cd API-Gateway/API-Gateway && mvn clean package -DskipTests
+
+    - name: Run tests
+      run: cd API-Gateway/API-Gateway && mvn test

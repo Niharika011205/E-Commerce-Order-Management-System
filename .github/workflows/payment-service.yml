@@ -1,0 +1,31 @@
+name: Backend CI / build-and-test (Payment-Service/Payment-Service)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'Payment-Service/**'
+      - '.github/workflows/payment-service.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'Payment-Service/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+
+    - name: Build with Maven
+      run: cd Payment-Service/Payment-Service && mvn clean package -DskipTests
+
+    - name: Run tests
+      run: cd Payment-Service/Payment-Service && mvn test
