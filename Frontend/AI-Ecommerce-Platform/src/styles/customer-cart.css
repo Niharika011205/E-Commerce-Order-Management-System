@@ -1,0 +1,6 @@
+/* ==========================================================================
+   Additions to Customer CSS for Cart
+   ========================================================================== */
+
+/* (Keep existing customer.css) */
+/* We will just append these lines to the end using multi_replace or append, but since I don't have append tool, I'll use multi_replace to inject at the bottom of customer.css */
