@@ -1,5 +1,7 @@
 # ShopMind - AI-Powered Enterprise E-Commerce Platform
 
+Demo video : https://drive.google.com/file/d/1kB10DCI8zoD7HTbJtMAjQMHlTg16vQ3S/view?usp=sharing
+
 A modern, scalable microservices-based e-commerce platform built with Spring Boot backend services and React frontend, featuring AI-powered product recommendations, integrated payment processing, and comprehensive order management.
 
 ## 🎯 Overview
